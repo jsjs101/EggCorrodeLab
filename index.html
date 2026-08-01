@@ -1,679 +1,199 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>달걀 껍데기 음료 부식도 실험 분석 - Egg Corrosion Analytics</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                    },
-                    colors: {
-                        slate: {
-                            850: '#151e2e',
-                            900: '#0f172a',
-                        },
-                        indigo: {
-                            600: '#4f46e5',
-                            500: '#6366f1',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0b0f17;
-            color: #f1f5f9;
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card-hover:hover {
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>codepaper | Careers</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="min-h-screen font-sans antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- Top Navigation Bar -->
-    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/20">
-                    E
-                </div>
-                <div>
-                    <span class="font-bold text-lg tracking-tight text-white">EggCorrode<span class="text-indigo-400">Lab</span></span>
-                    <span class="ml-2 text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">v2.4 Pro</span>
-                </div>
-            </div>
-            <div class="flex items-center space-x-4 text-sm text-slate-400">
-                <div class="hidden md:flex items-center space-x-6 mr-4">
-                    <a href="#overview" class="hover:text-white transition-colors">개요</a>
-                    <a href="#analytics" class="hover:text-white transition-colors">데이터 분석</a>
-                    <a href="#table-section" class="hover:text-white transition-colors">실험 결과표</a>
-                    <a href="#insights" class="hover:text-white transition-colors">핵심 인사이트</a>
-                </div>
-                <button class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2 rounded-lg text-xs sm:text-sm transition-all duration-200 shadow-lg shadow-indigo-600/20">
-                    <i class="fa-solid fa-download mr-1.5"></i> 리포트 내보내기
-                </button>
-            </div>
-        </div>
-    </nav>
+  <!-- Header Section -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="text-xl font-bold tracking-tight text-gray-900 flex items-center gap-2">
+        <span class="w-3 h-3 bg-indigo-600 rounded-full inline-block"></span>
+        codepaper
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#about" class="hover:text-indigo-600 transition-colors">About Us</a>
+        <a href="#culture" class="hover:text-indigo-600 transition-colors">Culture</a>
+        <a href="#jobs" class="hover:text-indigo-600 transition-colors">Open Positions</a>
+      </nav>
+      <a href="#jobs" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg shadow-sm hover:bg-indigo-500 transition-colors">
+        View Jobs
+      </a>
+    </div>
+  </header>
 
-    <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+  <!-- Hero Section -->
+  <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto text-center">
+    <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full">
+      WE ARE HIRING
+    </span>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6">
+      Build the Future of Document Software
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+      codepaper와 함께 더 스마트하고 직관적인 비즈니스 솔루션을 만들어갈 뛰어난 동료를 찾습니다.
+    </p>
 
-        <!-- Page Header -->
-        <div id="overview" class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
-            <div>
-                <div class="flex items-center gap-2 text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1">
-                    <i class="fa-solid fa-flask"></i> BIO-CHEMICAL CORROSION ANALYSIS
-                </div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">음료 종류별 달걀 껍데기 부식 반응 분석</h1>
-                <p class="text-slate-400 text-sm mt-1">탄산, 산성도(pH), 고카페인 음료가 칼슘 구조(CaCO₃)에 미치는 상대적 질량 감소율 연구 결과</p>
-            </div>
-            <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
-                <button id="viewAllBtn" onclick="filterData('all')" class="px-3 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white transition-all">전체 보기</button>
-                <button id="viewHighRiskBtn" onclick="filterData('high')" class="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all">고부식음료 ( Top 4 )</button>
-                <button id="viewControlBtn" onclick="filterData('control')" class="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all">대조군 ( 물/탄산수 )</button>
-            </div>
-        </div>
+    <!-- Interactive Card Grid -->
+    <div class="grid md:grid-cols-3 gap-6 mt-12 text-left">
+      <div class="feature-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+        <div class="w-10 h-10 mb-4 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center font-bold">01</div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">자율과 책임</h3>
+        <p class="text-sm text-gray-600">스스로 목표를 설정하고, 유연하게 일하며 결과로 증명합니다.</p>
+      </div>
+      <div class="feature-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+        <div class="w-10 h-10 mb-4 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center font-bold">02</div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">빠른 성장의 기회</h3>
+        <p class="text-sm text-gray-600">글로벌 SaaS 시장을 목표로 기술적·비즈니스적 도전을 멈추지 않습니다.</p>
+      </div>
+      <div class="feature-card bg-white p-6 rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+        <div class="w-10 h-10 mb-4 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center font-bold">03</div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">최고의 동료</h3>
+        <p class="text-sm text-gray-600">수준 높은 코드 리뷰와 활발한 피드백으로 함께 성장하는 문화를 만듭니다.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Metric Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Card 1 -->
-            <div class="glass-card glass-card-hover p-5 rounded-2xl transition-all duration-300">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-medium text-slate-400 uppercase tracking-wider">최대 질량 감소</span>
-                    <span class="p-2 rounded-lg bg-red-500/10 text-red-400 text-xs"><i class="fa-solid fa-triangle-exclamation"></i> 1위</span>
-                </div>
-                <div class="mt-4 flex items-baseline justify-between">
-                    <div>
-                        <span class="text-2xl font-bold text-white">0.49g</span>
-                        <span class="text-xs text-red-400 font-medium ml-1">(-10.8%)</span>
-                    </div>
-                    <span class="text-sm font-semibold text-red-300">핫식스</span>
-                </div>
-                <p class="text-xs text-slate-500 mt-2">초기 질량 기준 최고 부식율 기록</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="glass-card glass-card-hover p-5 rounded-2xl transition-all duration-300">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-medium text-slate-400 uppercase tracking-wider">평균 질량 감소량</span>
-                    <span class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 text-xs"><i class="fa-solid fa-calculator"></i> 평균</span>
-                </div>
-                <div class="mt-4 flex items-baseline justify-between">
-                    <div>
-                        <span class="text-2xl font-bold text-white">0.28g</span>
-                    </div>
-                    <span class="text-xs text-slate-400">전체 8개 대상</span>
-                </div>
-                <p class="text-xs text-slate-500 mt-2">대조군(물) 제외 시 평균 0.32g</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="glass-card glass-card-hover p-5 rounded-2xl transition-all duration-300">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-medium text-slate-400 uppercase tracking-wider">최고 산성도 음료</span>
-                    <span class="p-2 rounded-lg bg-amber-500/10 text-amber-400 text-xs"><i class="fa-solid fa-droplet"></i> 강산성</span>
-                </div>
-                <div class="mt-4 flex items-baseline justify-between">
-                    <div>
-                        <span class="text-2xl font-bold text-amber-400">pH 3.0</span>
-                    </div>
-                    <span class="text-sm font-semibold text-amber-300">콜라</span>
-                </div>
-                <p class="text-xs text-slate-500 mt-2">pH는 가장 낮으나 부식 순위는 4위</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="glass-card glass-card-hover p-5 rounded-2xl transition-all duration-300">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-medium text-slate-400 uppercase tracking-wider">안정성 대조군</span>
-                    <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 text-xs"><i class="fa-solid fa-shield-halved"></i> 안전</span>
-                </div>
-                <div class="mt-4 flex items-baseline justify-between">
-                    <div>
-                        <span class="text-2xl font-bold text-emerald-400">0.00g</span>
-                        <span class="text-xs text-emerald-400 font-medium ml-1">(부식 없음)</span>
-                    </div>
-                    <span class="text-sm font-semibold text-emerald-300">물 (pH 7)</span>
-                </div>
-                <p class="text-xs text-slate-500 mt-2">실험 오차범위 (-0.02g) 내 유지</p>
-            </div>
+  <!-- Jobs Section -->
+  <section id="jobs" class="py-20 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">채용 공고</h2>
+          <p class="text-gray-600">원하시는 직군을 필터링하거나 검색해 보세요.</p>
         </div>
 
-        <!-- Charts Section -->
-        <div id="analytics" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Main Chart (Bar Chart for Mass Loss) -->
-            <div class="glass-card p-6 rounded-2xl lg:col-span-2">
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-chart-column text-indigo-400"></i> 음료별 달걀 껍데기 질량 감소량 (g)
-                        </h2>
-                        <p class="text-xs text-slate-400 mt-1">감소량이 클수록 부식 정도가 심함을 의미합니다.</p>
-                    </div>
-                    <div class="text-xs text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                        단위: 그램 (g)
-                    </div>
-                </div>
-                <div class="h-72">
-                    <canvas id="massLossChart"></canvas>
-                </div>
-            </div>
+        <!-- Search Input -->
+        <div class="w-full md:w-72">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="직무 또는 기술 스택 검색..." 
+            class="w-full px-4 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all"
+          />
+        </div>
+      </div>
 
-            <!-- Secondary Chart (Doughnut or Radar / Scatter logic) -->
-            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i class="fa-solid fa-vial text-violet-400"></i> pH와 부식도의 관계
-                        </h2>
-                    </div>
-                    <p class="text-xs text-slate-400 mb-4">
-                        pH가 낮다고 해서 반드시 부식도가 비례하여 높지는 않습니다. (예: 콜라 pH3 vs 핫식스 pH5)
-                    </p>
-                </div>
-                <div class="h-60 relative flex items-center justify-center">
-                    <canvas id="phComparisonChart"></canvas>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-800/80 text-xs text-slate-400 flex items-center justify-between">
-                    <span><i class="fa-solid fa-circle-info text-indigo-400 mr-1"></i> 당분/유기산 복합 작용 원인</span>
-                    <span class="text-indigo-400 font-medium">상세분석 &rarr;</span>
-                </div>
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap gap-2 mb-8" id="filter-buttons">
+        <button data-filter="all" class="filter-btn active px-4 py-2 text-sm font-medium rounded-lg transition-all">전체</button>
+        <button data-filter="engineering" class="filter-btn px-4 py-2 text-sm font-medium rounded-lg transition-all">엔지니어링</button>
+        <button data-filter="product" class="filter-btn px-4 py-2 text-sm font-medium rounded-lg transition-all">프로덕트/디자인</button>
+        <button data-filter="business" class="filter-btn px-4 py-2 text-sm font-medium rounded-lg transition-all">비즈니스/마케팅</button>
+      </div>
+
+      <!-- Job List Grid -->
+      <div class="grid gap-4" id="job-list">
+        <!-- Job Item 1 -->
+        <div class="job-card bg-gray-50 hover:bg-indigo-50/50 p-6 rounded-xl border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer transition-all"
+             data-category="engineering" data-title="Frontend Engineer (React/Tailwind)" data-dept="Engineering" data-type="정규직">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 text-xs font-medium text-indigo-700 bg-indigo-100 rounded-md">Engineering</span>
+              <span class="text-xs text-gray-500">정규직</span>
             </div>
+            <h3 class="text-lg font-bold text-gray-900">Frontend Engineer (React / Tailwind CSS)</h3>
+            <p class="text-sm text-gray-600 mt-1">SaaS 플랫폼의 웹 프론트엔드 아키텍처 설계 및 고성능 UI/UX 개발</p>
+          </div>
+          <button class="px-4 py-2 text-sm font-semibold text-indigo-600 bg-white border border-indigo-200 rounded-lg hover:bg-indigo-600 hover:text-white transition-all self-start md:self-auto">
+            자세히 보기
+          </button>
         </div>
 
-        <!-- Data Table Section -->
-        <div id="table-section" class="glass-card rounded-2xl overflow-hidden border border-slate-800">
-            <div class="p-6 border-b border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-table text-indigo-400"></i> 상세 실험 데이터 매트릭스
-                    </h2>
-                    <p class="text-xs text-slate-400 mt-1">실험 후 질량, 감소량, pH, 부식 순위 및 정량 비주얼라이저</p>
-                </div>
-                <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-500"></i>
-                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="음료 검색..." class="pl-9 pr-4 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 w-48">
-                </div>
+        <!-- Job Item 2 -->
+        <div class="job-card bg-gray-50 hover:bg-indigo-50/50 p-6 rounded-xl border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer transition-all"
+             data-category="engineering" data-title="Backend Engineer (Node.js/Python)" data-dept="Engineering" data-type="정규직">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 text-xs font-medium text-indigo-700 bg-indigo-100 rounded-md">Engineering</span>
+              <span class="text-xs text-gray-500">정규직</span>
             </div>
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse" id="dataTable">
-                    <thead>
-                        <tr class="bg-slate-900/90 border-b border-slate-800 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                            <th class="py-3.5 px-6">음료 종류</th>
-                            <th class="py-3.5 px-6 text-center">실험 후 질량</th>
-                            <th class="py-3.5 px-6 text-center">질량 감소량</th>
-                            <th class="py-3.5 px-6 text-center">부식 순위</th>
-                            <th class="py-3.5 px-6 text-center">산성도 (pH)</th>
-                            <th class="py-3.5 px-6">상대적 부식 비율</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-800/60 text-xs text-slate-300">
-                        <!-- Row 1 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="high">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
-                                핫식스 <span class="text-[11px] font-normal text-slate-500">(에너지음료)</span>
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.51 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-red-400">0.49 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 font-semibold border border-red-500/20">
-                                    1위 (가장 큰)
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 font-mono font-medium border border-sky-500/20">pH 5</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-red-600 to-red-500 h-2 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 2 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="high">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-                                오렌지 <span class="text-[11px] font-normal text-slate-500">(오렌지주스)</span>
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.53 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-orange-400">0.47 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-400 font-semibold border border-orange-500/20">
-                                    2위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 font-mono font-medium border border-sky-500/20">pH 6</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-orange-600 to-orange-500 h-2 rounded-full" style="width: 96%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 3 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="high">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-amber-500"></div>
-                                사이다
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.54 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-amber-400">0.46 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 font-semibold border border-amber-500/20">
-                                    3위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-mono font-medium border border-amber-500/20">pH 4</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-amber-600 to-amber-500 h-2 rounded-full" style="width: 94%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 4 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="high">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-amber-600"></div>
-                                콜라
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.61 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-amber-500">0.39 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold border border-slate-700">
-                                    4위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 font-mono font-medium border border-red-500/20">pH 3</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-amber-700 to-amber-600 h-2 rounded-full" style="width: 80%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 5 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="moderate">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
-                                게토레이 <span class="text-[11px] font-normal text-slate-500">(스포츠음료)</span>
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.74 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-indigo-400">0.26 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold border border-slate-700">
-                                    5위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-mono font-medium border border-amber-500/20">pH 4</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 h-2 rounded-full" style="width: 53%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 6 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="control">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-blue-400"></div>
-                                탄산수
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.89 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-blue-400">0.11 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold border border-slate-700">
-                                    6위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 font-mono font-medium border border-sky-500/20">pH 6</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-2 rounded-full" style="width: 22%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 7 -->
-                        <tr class="hover:bg-slate-800/30 transition-colors group" data-category="moderate">
-                            <td class="py-4 px-6 font-semibold text-white flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-                                커피
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono">4.95 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-blue-400">0.05 g</td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-semibold border border-slate-700">
-                                    7위
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 font-mono font-medium border border-sky-500/20">pH 6</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 h-2 rounded-full" style="width: 10%"></div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <!-- Row 8 (Control Group) -->
-                        <tr class="bg-emerald-950/20 hover:bg-emerald-950/30 transition-colors group" data-category="control">
-                            <td class="py-4 px-6 font-semibold text-emerald-300 flex items-center gap-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
-                                물 <span class="text-[11px] font-normal text-emerald-500/80">(대조군)</span>
-                            </td>
-                            <td class="py-4 px-6 text-center font-mono text-emerald-200">5.02 g</td>
-                            <td class="py-4 px-6 text-center font-mono font-bold text-emerald-400">-0.02 g <span class="text-[10px] font-normal text-emerald-500">(증가/오차)</span></td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">
-                                    부식 없음
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 text-center">
-                                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono font-medium border border-emerald-500/20">pH 7</span>
-                            </td>
-                            <td class="py-4 px-6">
-                                <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
-                                    <div class="bg-emerald-500 h-2 rounded-full" style="width: 0%"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h3 class="text-lg font-bold text-gray-900">Backend Engineer (Node.js / Python)</h3>
+            <p class="text-sm text-gray-600 mt-1">대용량 문서 데이터 처리 엔진 구축 및 Microservice API 개발</p>
+          </div>
+          <button class="px-4 py-2 text-sm font-semibold text-indigo-600 bg-white border border-indigo-200 rounded-lg hover:bg-indigo-600 hover:text-white transition-all self-start md:self-auto">
+            자세히 보기
+          </button>
         </div>
 
-        <!-- Insights Grid -->
-        <div id="insights" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center mb-4 border border-red-500/20">
-                    <i class="fa-solid fa-bolt text-lg"></i>
-                </div>
-                <h3 class="text-base font-bold text-white mb-2">고카페인 & 당분의 시너지</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    핫식스와 같은 에너지 음료는 pH 5로 완만한 산성을 띱니다. 그러나 복합 당류 및 다양한 시트르산 성분이 칼슘 결합을 약화시켜 가장 높은 질량 감소량(0.49g)을 보였습니다.
-                </p>
+        <!-- Job Item 3 -->
+        <div class="job-card bg-gray-50 hover:bg-indigo-50/50 p-6 rounded-xl border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer transition-all"
+             data-category="product" data-title="Product Designer (UI/UX)" data-dept="Product" data-type="정규직">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 text-xs font-medium text-emerald-700 bg-emerald-100 rounded-md">Product</span>
+              <span class="text-xs text-gray-500">정규직</span>
             </div>
-
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 border border-amber-500/20">
-                    <i class="fa-solid fa-lemon text-lg"></i>
-                </div>
-                <h3 class="text-base font-bold text-white mb-2">구연산/천연산의 부식력</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    오렌지주스(pH 6) 역시 강산성이 아님에도 구연산(Citric Acid) 반응으로 인해 사이다(pH 4)나 콜라(pH 3)보다도 높은 부식 반응(0.47g 감소)을 나타냈습니다.
-                </p>
-            </div>
-
-            <div class="glass-card p-6 rounded-2xl">
-                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 border border-indigo-500/20">
-                    <i class="fa-solid fa-scale-balanced text-lg"></i>
-                </div>
-                <h3 class="text-base font-bold text-white mb-2">pH 단독 변수의 한계</h3>
-                <p class="text-xs text-slate-400 leading-relaxed">
-                    콜라는 가장 강한 산성(pH 3)을 나타냈으나 실제 질량 감소는 4위(0.39g)였습니다. 이는 치아나 달걀 껍데기(탄산칼슘) 부식에 단순 pH 외에 성분 조성이 크게 작용함을 시사합니다.
-                </p>
-            </div>
+            <h3 class="text-lg font-bold text-gray-900">Product Designer (UI/UX)</h3>
+            <p class="text-sm text-gray-600 mt-1">복잡한 워크플로우를 직관적인 UI 시스템으로 단순화하는 리드 디자이너</p>
+          </div>
+          <button class="px-4 py-2 text-sm font-semibold text-indigo-600 bg-white border border-indigo-200 rounded-lg hover:bg-indigo-600 hover:text-white transition-all self-start md:self-auto">
+            자세히 보기
+          </button>
         </div>
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 mt-16 py-8 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-            <div>
-                &copy; 2026 EggCorrode Analytics Lab. All rights reserved.
+        <!-- Job Item 4 -->
+        <div class="job-card bg-gray-50 hover:bg-indigo-50/50 p-6 rounded-xl border border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer transition-all"
+             data-category="business" data-title="B2B Growth Marketer" data-dept="Business" data-type="정규직">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 text-xs font-medium text-amber-700 bg-amber-100 rounded-md">Business</span>
+              <span class="text-xs text-gray-500">정규직</span>
             </div>
-            <div class="flex items-center space-x-6">
-                <span>데이터 출처: 생물/화학 부식도 실험 데이터</span>
-                <span>마지막 업데이트: 2026-08-01</span>
-            </div>
+            <h3 class="text-lg font-bold text-gray-900">B2B Growth Marketer</h3>
+            <p class="text-sm text-gray-600 mt-1">SaaS 인바운드 리드 수집 캠페인 기획 및 브랜드 퍼포먼스 마케팅</p>
+          </div>
+          <button class="px-4 py-2 text-sm font-semibold text-indigo-600 bg-white border border-indigo-200 rounded-lg hover:bg-indigo-600 hover:text-white transition-all self-start md:self-auto">
+            자세히 보기
+          </button>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Chart Logic -->
-    <script>
-        // Chart.js Configuration
-        Chart.defaults.color = '#94a3b8';
-        Chart.defaults.font.family = 'Inter, sans-serif';
+  <!-- Job Detail Modal -->
+  <div id="job-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/40 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <span id="modal-dept" class="px-2.5 py-0.5 text-xs font-medium text-indigo-700 bg-indigo-100 rounded-md">Dept</span>
+          <h2 id="modal-title" class="text-2xl font-bold text-gray-900 mt-2">Job Title</h2>
+        </div>
+        <button id="close-modal" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+      </div>
 
-        // 1. Mass Loss Bar Chart
-        const ctxBar = document.getElementById('massLossChart').getContext('2d');
-        const massLossChart = new Chart(ctxBar, {
-            type: 'bar',
-            data: {
-                labels: ['핫식스', '오렌지주스', '사이다', '콜라', '게토레이', '탄산수', '커피', '물 (대조군)'],
-                datasets: [{
-                    label: '질량 감소량 (g)',
-                    data: [0.49, 0.47, 0.46, 0.39, 0.26, 0.11, 0.05, 0.00],
-                    backgroundColor: [
-                        '#ef4444',
-                        '#f97316',
-                        '#f59e0b',
-                        '#d97706',
-                        '#6366f1',
-                        '#38bdf8',
-                        '#3b82f6',
-                        '#10b981'
-                    ],
-                    borderRadius: 6,
-                    borderSkipped: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        backgroundColor: '#1e293b',
-                        titleColor: '#f8fafc',
-                        bodyColor: '#cbd5e1',
-                        borderColor: '#334155',
-                        borderWidth: 1,
-                        padding: 12,
-                        boxPadding: 6,
-                        usePointStyle: true,
-                        callbacks: {
-                            label: function(context) {
-                                return ` 감소량: ${context.raw} g`;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false,
-                            drawBorder: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 11
-                            }
-                        }
-                    },
-                    y: {
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.05)',
-                            drawBorder: false
-                        },
-                        ticks: {
-                            stepSize: 0.1,
-                            font: {
-                                size: 11
-                            }
-                        },
-                        suggestedMax: 0.55
-                    }
-                }
-            }
-        });
+      <div class="space-y-4 my-6 text-sm text-gray-600">
+        <p><strong>[주요 업무]</strong><br/>- SaaS 플랫폼 서비스의 핵심 기능 설계 및 구현<br/>- 사용자 경험 개선을 위한 지속적인 A/B 테스트 및 성능 최적화</p>
+        <p><strong>[자격 요건]</strong><br/>- 관련 분야 경력 2년 이상 또는 이에 준하는 실력을 갖추신 분<br/>- 커뮤니케이션이 원활하고 주도적인 문제 해결 능력을 지니신 분</p>
+      </div>
 
-        // 2. pH vs Corrosion Scatter/Bubble Chart
-        const ctxPH = document.getElementById('phComparisonChart').getContext('2d');
-        const phChart = new Chart(ctxPH, {
-            type: 'bubble',
-            data: {
-                datasets: [{
-                    label: '음료 특성',
-                    data: [
-                        { x: 5, y: 0.49, r: 12, name: '핫식스' },
-                        { x: 6, y: 0.47, r: 11, name: '오렌지주스' },
-                        { x: 4, y: 0.46, r: 10, name: '사이다' },
-                        { x: 3, y: 0.39, r: 9, name: '콜라' },
-                        { x: 4, y: 0.26, r: 8, name: '게토레이' },
-                        { x: 6, y: 0.11, r: 6, name: '탄산수' },
-                        { x: 6, y: 0.05, r: 5, name: '커피' },
-                        { x: 7, y: 0.00, r: 5, name: '물' }
-                    ],
-                    backgroundColor: [
-                        'rgba(239, 68, 68, 0.7)',
-                        'rgba(249, 115, 22, 0.7)',
-                        'rgba(245, 158, 11, 0.7)',
-                        'rgba(217, 119, 6, 0.7)',
-                        'rgba(99, 102, 241, 0.7)',
-                        'rgba(56, 189, 248, 0.7)',
-                        'rgba(59, 130, 246, 0.7)',
-                        'rgba(16, 185, 129, 0.7)'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1e293b',
-                        borderColor: '#334155',
-                        borderWidth: 1,
-                        callbacks: {
-                            label: function(context) {
-                                const raw = context.raw;
-                                return `${raw.name}: pH ${raw.x} / 감소량 ${raw.y}g`;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        title: { display: true, text: '산성도 (pH)', color: '#64748b', font: { size: 10 } },
-                        min: 2,
-                        max: 8,
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
-                    },
-                    y: {
-                        title: { display: true, text: '감소량 (g)', color: '#64748b', font: { size: 10 } },
-                        min: -0.05,
-                        max: 0.55,
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' }
-                    }
-                }
-            }
-        });
+      <div class="flex justify-end gap-3 pt-4 border-t border-gray-100">
+        <button id="modal-cancel-btn" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+          닫기
+        </button>
+        <a href="mailto:careers@codepaper.io" class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors">
+          지원하기
+        </a>
+      </div>
+    </div>
+  </div>
 
-        // Filter Logic
-        function filterData(type) {
-            const btnAll = document.getElementById('viewAllBtn');
-            const btnHigh = document.getElementById('viewHighRiskBtn');
-            const btnControl = document.getElementById('viewControlBtn');
-            
-            // Reset styles
-            [btnAll, btnHigh, btnControl].forEach(btn => {
-                btn.className = "px-3 py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition-all";
-            });
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-900 text-gray-400 text-center text-sm border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <p>&copy; 2026 codepaper Inc. All rights reserved.</p>
+    </div>
+  </footer>
 
-            const rows = document.querySelectorAll('#dataTable tbody tr');
-
-            if (type === 'all') {
-                btnAll.className = "px-3 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white transition-all";
-                rows.forEach(r => r.style.display = '');
-            } else if (type === 'high') {
-                btnHigh.className = "px-3 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white transition-all";
-                rows.forEach(r => {
-                    r.style.display = r.getAttribute('data-category') === 'high' ? '' : 'none';
-                });
-            } else if (type === 'control') {
-                btnControl.className = "px-3 py-1.5 text-xs font-medium rounded-lg bg-indigo-600 text-white transition-all";
-                rows.forEach(r => {
-                    r.style.display = r.getAttribute('data-category') === 'control' ? '' : 'none';
-                });
-            }
-        }
-
-        // Table Search Logic
-        function searchTable() {
-            const input = document.getElementById("searchInput");
-            const filter = input.value.toLowerCase();
-            const table = document.getElementById("dataTable");
-            const tr = table.getElementsByTagName("tr");
-
-            for (let i = 1; i < tr.length; i++) {
-                let td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    let txtValue = td.textContent || td.innerText;
-                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

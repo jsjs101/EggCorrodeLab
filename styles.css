@@ -1,0 +1,32 @@
+/* Custom Header Styling on Scroll */
+#site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(229, 231, 235, 0.8);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Active Filter Button Styles */
+.filter-btn {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  color: #4b5563; /* text-gray-600 */
+}
+
+.filter-btn:hover {
+  background-color: #e5e7eb; /* bg-gray-200 */
+}
+
+.filter-btn.active {
+  background-color: #4f46e5; /* bg-indigo-600 */
+  color: #ffffff;
+}
+
+/* Modal Open Animation Helpers */
+#job-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#job-modal.active #modal-content {
+  transform: scale(1);
+}
